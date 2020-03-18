@@ -1,5 +1,6 @@
 const urlAdd = "http://localhost:8070/rulemanager/add";
 const urlFetch = "http://localhost:8070/rulemanager/fetch";
+const urlDelete = "http://localhost:8070/rulemanager/delete";
 
 function submitForm() {
     const params = {
@@ -10,7 +11,6 @@ function submitForm() {
     var xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function() {
-        console.log(this.readyState)
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("demo").innerHTML = "successful";
         }
@@ -62,7 +62,6 @@ function fetch() {
     var xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function() {
-        console.log(this.readyState)
         if (this.readyState == 4 && this.status == 200) {
             rules = xhttp.responseText;
             createTable(JSON.parse(rules));
@@ -90,7 +89,7 @@ function createTable(rules) {
         var td3 = document.createElement("td");
         var delButton = document.createElement("button");
         delButton.innerHTML = "Delete";
-        delButton.onclick = delRow(delButton);
+        delButton.onclick = function() { delRow() };
         td3.appendChild(delButton);
 
         bRow.appendChild(td1);
@@ -102,6 +101,24 @@ function createTable(rules) {
 
 }
 
-function delRow(button) {
+function delRow() {
+    var row = event.target.parentNode.parentNode;
+    deleteRule(row.cells[0].innerHTML);
 
+    document.getElementById("table").deleteRow(row.rowIndex);
+}
+
+function deleteRule(ruleID) {
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log("Delete successful")
+        }
+    };
+
+    xhttp.open("POST", urlDelete);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    data = `id=${ruleID}`;
+    xhttp.send(data);
 }
