@@ -17,6 +17,9 @@ function submitForm() {
         if (this.readyState == 4 && this.status == 400) {
             document.getElementById("demo").innerHTML = "bad request";
         }
+        if (this.readyState == 4 && this.status == 403) {
+            document.getElementById("demo").innerHTML = "duplicate rule ID";
+        }
     };
 
     xhttp.open("POST", urlAdd);
