@@ -1,7 +1,9 @@
-const urlAdd = "http://localhost:8070/rulemanager/add";
-const urlFetch = "http://localhost:8070/rulemanager/fetch";
-const urlDelete = "http://localhost:8070/rulemanager/delete";
-const urlUpdate = "http://localhost:8070/rulemanager/update";
+const url = "ec2-user@ec2-13-58-238-24.us-east-2.compute.amazonaws.com";
+const port = ":8070"
+const urlAdd = url + port+ "/rulemanager/add";
+const urlFetch = url + port+ "/rulemanager/fetch";
+const urlDelete = url + port+ "/rulemanager/delete";
+const urlUpdate = url + port+ "/rulemanager/update";
 
 function submitForm() {
     const params = {
