@@ -1,4 +1,4 @@
-const url = "http://ec2-user@ec2-13-58-238-24.us-east-2.compute.amazonaws.com";
+const url = "//ec2-user@ec2-13-58-238-24.us-east-2.compute.amazonaws.com";
 const port = ":8070"
 const urlAdd = url + port+ "/rulemanager/add";
 const urlFetch = url + port+ "/rulemanager/fetch";
