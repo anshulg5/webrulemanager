@@ -1,5 +1,5 @@
 const url = "http://ec2-user@ec2-13-58-238-24.us-east-2.compute.amazonaws.com";
-// const port = ":8070"
+const port = ""
 const urlAdd = url + port+ "/rulemanager/add";
 const urlFetch = url + port+ "/rulemanager/fetch";
 const urlDelete = url + port+ "/rulemanager/delete";
