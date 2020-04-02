@@ -1,5 +1,5 @@
-const url = "http://ec2-user@ec2-13-58-238-24.us-east-2.compute.amazonaws.com";
-const port = ""
+const url = "http://localhost";
+const port = ":8070"
 const urlAdd = url + port+ "/rulemanager/add";
 const urlFetch = url + port+ "/rulemanager/fetch";
 const urlDelete = url + port+ "/rulemanager/delete";
@@ -83,28 +83,24 @@ function createTable(rules) {
     var keyArray = Object.keys(rules);
     // alert(keyArray);
     for (var i = 0; i < keyArray.length; i++) {
-        var bRow = document.createElement("tr");
+        const bRow = document.createElement("tr");
 
-        var td1 = document.createElement("td");
+        const td1 = document.createElement("td");
         td1.innerHTML = keyArray[i];
-        var td2 = document.createElement("td");
+        const td2 = document.createElement("td");
         td2.innerHTML = rules[keyArray[i]];
 
-        var td3 = document.createElement("td");
-        var delButton = document.createElement("button");
+        const td3 = document.createElement("td");
+        const delButton = document.createElement("button");
         delButton.innerHTML = "Delete";
         delButton.onclick = function() { delRow() };
         td3.appendChild(delButton);
 
-        var td4 = document.createElement("td");
-        var updateButton = document.createElement("button");
+        const td4 = document.createElement("td");
+        const updateButton = document.createElement("button");
         updateButton.innerHTML = "Update";
         updateButton.onclick = function() {
-        const detail = {
-                'id': td1.innerHTML,
-                'rule': td2.innerHTML
-            };
-        updateRule(detail);
+            window.location.href = 'updateRule.html?id=' + td1.innerHTML + "&rule=" + td2.innerHTML;
         };
         td4.appendChild(updateButton);
 
