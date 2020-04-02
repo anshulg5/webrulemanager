@@ -1,5 +1,6 @@
-const url = "http://localhost";
-const port = ":8070"
+const url = "https://ec2-user@ec2-13-58-238-24.us-east-2.compute.amazonaws.com";
+// const url = "https://localhost"
+const port = ":1443"
 const urlAdd = url + port+ "/rulemanager/add";
 const urlFetch = url + port+ "/rulemanager/fetch";
 const urlDelete = url + port+ "/rulemanager/delete";
