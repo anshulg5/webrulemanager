@@ -1,1 +1,1 @@
-# anshulg5.github.io
+UserInterface for RuleManager API service
